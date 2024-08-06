@@ -1,0 +1,49 @@
+.logoimg {
+    width: 100%;
+    cursor: pointer;
+    /* 显示小手图标 */
+    // height: 45px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 92%;
+
+    .logoimgbot {
+        width: 145px;
+    }
+
+    .ant-input-wrapper {
+        border-radius: 0;
+    }
+
+    .ant-btn-primary {
+        background-color: black;
+        height: 38px;
+    }
+
+
+
+    .ant-input-group-addon {
+        border-radius: 0;
+    }
+
+    // input边框
+    .ant-input-outlined {
+        border-color: #000000;
+        border-radius: 0;
+        height: 38px;
+    }
+
+    .ant-input-outlined:focus {
+        border-color: #000000;
+    }
+
+    .topendimg {
+        width: 24px;
+        margin: 0 8px;
+    }
+}

@@ -20,7 +20,7 @@ const SubMenuList = () => {
                         label: `Tab-${id}`,
                         key: id,
                         disabled: i === 28,
-                        children: `Content of tab ${id} </br> <div>11111111111111</div>`,
+                        children: `Content of tab ${id}`,
                     };
                 })}
             />

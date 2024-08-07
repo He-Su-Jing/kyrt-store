@@ -26,7 +26,7 @@ function Home() {
                 <div>
                     <span><img src="assets/my.png" alt="" className="topendimg" /></span>
                     <span><img src="assets/shopcart.png" alt="" className="topendimg" />0</span>
-                    <span><img src="assets/hart.png" alt="" className="topendimg" />0</span>
+                    <span><img src="assets/hart2.png" alt="" className="topendimg" />0</span>
                     <span><img src="assets/erji.png" alt="" className="topendimg" /></span>
                     <span><img src="assets/diqiu.png" alt="" className="topendimg" /></span>
                 </div>

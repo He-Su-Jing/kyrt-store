@@ -2,7 +2,7 @@ import "./home.scss"
 
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { Button, Flex, Input, Breadcrumb, Dropdown, Space } from 'antd';
+import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row } from 'antd';
 
 import Menu from '../../components/menu/menu';
 import Menulist from '../../components/menulist/menulist';
@@ -12,6 +12,7 @@ function Home() {
     const { Search } = Input;
     const onSearch = (value, _e, info) => console.log(info?.source, value);
 
+    // 我的小图标样式
     const items = [
 
         {
@@ -40,6 +41,27 @@ function Home() {
                 </a>
             ),
             key: '2',
+        },
+    ];
+
+    // 轮播图样式
+    const contentStyle = {
+        margin: 0,
+        color: '#fff',
+        textAlign: 'center',
+        background: '#364d79',
+    };
+
+    // 地球小图标样式
+    const menuItems = [
+
+        {
+            key: '3',
+            label: (
+                <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+                    Navigation
+                </a>
+            ),
         },
     ];
 
@@ -81,14 +103,31 @@ function Home() {
                     <div style={{ cursor: 'pointer' }} className="topenderji">
                         <img src="assets/erji.png" alt="" className="topendimg" />
                         <div className="topenderjixia">
-                            <div>1111</div>
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src="assets/erji.png" alt="" className="topendimgs" />
+                                <div style={{ marginLeft: '10px' }}>
+                                    <div>Customer Service</div>
+                                    <div>What can we do for you?</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div style={{ cursor: 'pointer' }} className="topenddiqiu">
                         <img src="assets/diqiu.png" alt="" className="topendimg" />
                         <div className="topenddiqiuxia">
-                            <div>222222222</div>
+                            <div>
+                                <div>Currency</div>
+                                <select style={{ width: '200px', height: '30px', marginTop: '20px', border: '1px solid #ddd', backgroundColor: '#f7f8fa' }}>
+                                    <option> SGD / S$ </option>
+                                    <option> USD / $ </option>
+                                    <option> EUR / € </option>
+                                    <option> MYR / RM </option>
+                                </select>
+
+                                <div style={{ marginTop: '50px' }}><a href="javascript">International Site</a></div>
+
+                            </div>
                         </div>
                     </div>
 
@@ -98,10 +137,31 @@ function Home() {
             {/* <Menu /> */}
             <Menulist />
 
-
             <div className="center">
-
+                <div className="centerzi">
+                    <div><img src="assets/lunbozuo.png" alt="" className="centerimg" /></div>
+                    <div className="centerlunbo">
+                        <Carousel arrows infinite={false} autoplay infinite>
+                            <div>
+                                <h3 style={contentStyle}><img src="assets/lunbo1.png" alt="" className="centerimglb" /></h3>
+                            </div>
+                            <div>
+                                <h3 style={contentStyle}><img src="assets/lunbo2.png" alt="" className="centerimglb" /></h3>
+                            </div>
+                            <div>
+                                <h3 style={contentStyle}><img src="assets/lunbo3.png" alt="" className="centerimglb" /></h3>
+                            </div>
+                            <div>
+                                <h3 style={contentStyle}><img src="assets/lunbo4.png" alt="" className="centerimglb" /></h3>
+                            </div>
+                        </Carousel>
+                    </div>
+                    <div className="centerend">
+                        111111111
+                    </div>
+                </div>
             </div>
+
         </>
     )
 }

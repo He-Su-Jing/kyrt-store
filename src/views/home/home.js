@@ -1,6 +1,7 @@
 import "./home.scss"
 
 import React from 'react';
+import { useState, useRef } from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row } from 'antd';
 
@@ -8,11 +9,25 @@ import Menu from '../../components/menu/menu';
 import Menulist from '../../components/menulist/menulist';
 
 function Home() {
-
+    const [isOverlayVisible, setOverlayVisible] = useState(false);
     const { Search } = Input;
-    const onSearch = (value, _e, info) => console.log(info?.source, value);
 
-    // 我的小图标样式
+
+
+    const onSearch = (value, _e, info) => {
+        console.log(info?.source, value);
+    }
+
+    const toggleOverlay = () => {
+        setOverlayVisible(true);
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeOverlay = () => {
+        setOverlayVisible(false);
+        document.body.style.overflow = 'auto';
+    };
+
     const items = [
 
         {
@@ -44,28 +59,12 @@ function Home() {
         },
     ];
 
-    // 轮播图样式
     const contentStyle = {
         margin: 0,
         color: '#fff',
         textAlign: 'center',
-        background: '#364d79',
+        // background: '#364d79',
     };
-
-    // 地球小图标样式
-    const menuItems = [
-
-        {
-            key: '3',
-            label: (
-                <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-                    Navigation
-                </a>
-            ),
-        },
-    ];
-
-
 
     return (
         <>
@@ -73,8 +72,40 @@ function Home() {
 
             <div className="top" >
                 <div><img src="assets/imagetop3.png" alt="" className="logoimgbot" /></div>
-                <div>
-                    <Search placeholder="input search text" onSearch={onSearch} enterButton style={{ width: '480px', height: '38px' }} />
+                <div className="inputsch">
+                    <div className="search-container">
+                        <Search
+                            placeholder="input search text"
+                            onSearch={onSearch}
+                            enterButton
+                            style={{ width: '180%', height: '38px' }}
+                            onFocus={toggleOverlay} /* 当输入框获得焦点时显示遮罩层 */
+                            onBlur={closeOverlay} /* 当输入框失去焦点时隐藏遮罩层 */
+                        />
+                    </div>
+                    {isOverlayVisible && (
+                        <div className="overlay" onClick={closeOverlay}>
+                        </div>
+                    )}
+
+                    {isOverlayVisible && (
+                        <div className="overlaywhite" onClick={closeOverlay}>
+                            <div style={{ marginBottom: '20px', fontWeight: '600' }}>Search Discovery</div>
+
+                            <div style={{ display: 'flex', fontSize: '12px' }}>
+                                <div>
+                                    dress
+                                    <img src="assets/hort.png" alt="" style={{ width: '17px', marginRight: '5px' }} />
+                                </div>
+                                <div>
+                                    Maija
+                                    <img src="assets/hort.png" alt="" style={{ width: '17px', marginRight: '5px' }} />
+                                </div>
+                            </div>
+
+                        </div>
+                    )}
+
                 </div>
                 <div className="topend">
                     <div style={{ cursor: 'pointer' }}>
@@ -134,7 +165,6 @@ function Home() {
                 </div>
             </div>
 
-            {/* <Menu /> */}
             <Menulist />
 
             <div className="center">
@@ -157,10 +187,105 @@ function Home() {
                         </Carousel>
                     </div>
                     <div className="centerend">
-                        111111111
+                        <div style={{ color: '#A4003B', fontWeight: '600', marginBottom: '5px' }}>
+                            <img src="assets/hort.png" alt="" style={{ width: '17px', marginRight: '5px' }} />
+                            Weekly Wonders
+                        </div>
+                        <div className="centerendzi">
+                            <div>
+                                <img src="assets/lunboy1.png" alt="" className="centerimglby" />
+                                <div className="centerimglbyqian">s$1.91</div>
+                            </div>
+                            <div>
+                                <img src="assets/lunboy2.png" alt="" className="centerimglby" />
+                                <div className="centerimglbyqian2">s$1.91</div>
+                            </div>
+                            <div>
+                                <img src="assets/lunboy3.png" alt="" className="centerimglby" />
+                                <div className="centerimglbyqian3">s$1.91</div>
+                            </div>
+                        </div>
+                        <div className="centerendzi">
+                            <div>
+                                <img src="assets/lunboy4.png" alt="" className="centerimglby" />
+                                <div className="centerimglbyqian">s$1.91</div>
+                            </div>
+                            <div>
+                                <img src="assets/lunboy5.png" alt="" className="centerimglby" />
+                                <div className="centerimglbyqian2">s$1.91</div>
+                            </div>
+                            <div>
+                                <img src="assets/lunboy6.png" alt="" className="centerimglby" />
+                                <div className="centerimglbyqian3">s$1.91</div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
+
+
+            <div className="centerone">
+                <div className="centeronez"><img src="assets/centerone1.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone2.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone3.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone4.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone5.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone6.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone7.png" alt="" className="centeronezimg" /></div>
+            </div>
+
+            <div className="centerone" style={{ marginTop: '20px' }}>
+                <div className="centeronez"><img src="assets/centerone6.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone5.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone7.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone3.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone2.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone1.png" alt="" className="centeronezimg" /></div>
+                <div className="centeronez"><img src="assets/centerone2.png" alt="" className="centeronezimg" /></div>
+            </div>
+
+            <div className="centertwo" style={{ marginTop: '20px' }}>
+                <div className="centertwozi">
+                    <img src="assets/centertwo.png" alt="" className="centertwozimg" />
+                    <div style={{ cursor: 'pointer' }}>View more ＞ </div>
+                </div>
+
+
+                <div className="centertwozio">
+                    <Carousel arrows infinite={false} infinite arrowSize={20}>
+                        <div>
+                            <h3 style={contentStyle} className="wwwwwwww">
+                                <img src="assets/centertwoimpt4.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt1.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt2.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt5.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt6.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt3.png" alt="" className="centerimgtwo" />
+                            </h3>
+                        </div>
+                        <div>
+                            <h3 style={contentStyle} className="wwwwwwww">
+                                <img src="assets/centertwoimpt6.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt3.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt1.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt4.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt7.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centertwoimpt5.png" alt="" className="centerimgtwo" />
+                            </h3>
+                        </div>
+                        {/* <div>
+                            <h3 style={contentStyle}><img src="assets/lunbo3.png" alt="" className="centerimgtwo" /></h3>
+                        </div>
+                        <div>
+                            <h3 style={contentStyle}><img src="assets/lunbo4.png" alt="" className="centerimgtwo" /></h3>
+                        </div> */}
+                    </Carousel>
+                </div>
+
+            </div>
+
 
         </>
     )

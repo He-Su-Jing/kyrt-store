@@ -1,4 +1,9 @@
-// 标题栏样式
+.tab {
+    width: 1450px;
+    margin: 0 auto;
+}
+
+
 .ant-tabs-nav {
     padding: 0 70px;
 }
@@ -7,9 +12,6 @@
     display: flex;
     padding: 0 70px;
     // display: none !important;
-
-
-
 }
 
 .ant-tabs-tabpane {
@@ -25,9 +27,7 @@
     display: none;
 }
 
-// .ant-tabs-tab-btn {
-//     background-color: aqua;
-// }
+
 
 .ant-tabs-nav {
     // background-color: rgb(203, 82, 240);

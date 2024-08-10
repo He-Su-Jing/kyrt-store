@@ -1,0 +1,116 @@
+.choose {
+    font-family: Arial, sans-serif;
+}
+
+.choose-titles {
+    max-width: 1400px;
+    width: 88%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    margin-left: auto; //解决display：flex无法设置margin：0 auto 的方法 How to solve the problem that display: flex cannot set margin:0 auto
+    margin-right: auto; //解决display：flex无法设置margin：0 auto 的方法 
+}
+
+.choose-title {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.choose-title.active {
+    // border-bottom: 2px solid blue;
+    font-weight: 600;
+    color: #c60001;
+}
+
+.choose-content {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    /* 确保适当的高度 */
+}
+
+.choose-pane {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+
+    // 1
+    // transform: translateY(-20px);
+    // opacity: 0;
+    // transition: transform 0.3s ease, opacity 0.3s ease;
+    // 2
+
+    // opacity: 0;
+    // visibility: hidden;
+
+}
+
+.choose-pane.active {
+    display: block;
+    // transform: translateY(0);
+    // opacity: 1;
+
+    // 2
+    // opacity: 1;
+    // visibility: visible;
+}
+
+.centertwos {
+    max-width: 1400px;
+    width: 88%;
+    // display: flex;
+    // justify-content: space-around;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    // background-color: #fa6338;
+    // background: linear-gradient(to bottom, rgb(247, 43, 3), rgb(254, 246, 239));
+
+    margin-bottom: 50px;
+
+    .centertwozi {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1400px;
+        width: 99%;
+        padding: 20px;
+        font-size: 20px;
+
+        .centertwozimg {
+            width: 149px;
+            height: 29px;
+        }
+    }
+
+    .centertwozio {
+        max-width: 1400px;
+        width: 99%;
+        margin: 0 auto;
+        margin-left: 12px;
+
+        .wwwwwwww {
+            display: flex;
+        }
+
+        .centerimgtwo {
+            width: 15%;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    }
+
+    .slick-next {
+        width: 36px;
+        color: rgb(0, 0, 0);
+        // background-color: #fa6338;
+        background: hsla(0, 0%, 100%, .6);
+        padding: 10px;
+        padding-top: 10px;
+        border-radius: 50%;
+        text-align: center;
+    }
+
+}

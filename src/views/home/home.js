@@ -7,6 +7,7 @@ import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row } 
 
 import Menu from '../../components/menu/menu';
 import Menulist from '../../components/menulist/menulist';
+import Choose from '../../components/choose/choose'; // 确保路径正确
 
 function Home() {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
@@ -285,6 +286,11 @@ function Home() {
                 </div>
 
             </div>
+
+            <div>
+                <Choose />
+            </div>
+
 
 
         </>

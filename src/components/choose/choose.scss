@@ -27,7 +27,7 @@
 .choose-content {
     display: flex;
     flex-direction: column;
-    height: 400px;
+    max-height: 360px;
     /* 确保适当的高度 */
 }
 

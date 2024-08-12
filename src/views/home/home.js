@@ -291,6 +291,65 @@ function Home() {
                 <Choose />
             </div>
 
+            <div className="threeimg" >
+                <img src="assets/centerthree.png" alt="" className="threeimgs" />
+            </div>
+            <div className="centerthree" style={{ marginTop: '20px' }}>
+                <div className="centertwozio">
+                    <Carousel arrows infinite={false} infinite arrowSize={20}>
+                        <div>
+                            <h3 style={contentStyle} className="wwwwwwww">
+                                <img src="assets/centerthree1.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerthree2.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerthree3.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerthree4.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerthree5.png" alt="" className="centerimgtwo" />
+                                {/* <img src="assets/centerthree6.png" alt="" className="centerimgtwo" /> */}
+                            </h3>
+                        </div>
+                        <div>
+                            <h3 style={contentStyle} className="wwwwwwww">
+                                <img src="assets/centerthree9.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerthree8.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerthree6.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerthree7.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerthree10.png" alt="" className="centerimgtwo" />
+                                {/* <img src="assets/centerthree4.png" alt="" className="centerimgtwo" /> */}
+                            </h3>
+                        </div>
+                    </Carousel>
+                </div>
+
+            </div>
+
+            <div className="threeimg" >
+                <img src="assets/fourimg.png" alt="" className="threeimgs" />
+            </div>
+            <div className="centerthree" style={{ marginTop: '20px' }}>
+                <div className="centertwozio">
+                    <Carousel arrows infinite={false} infinite arrowSize={20}>
+                        <div>
+                            <h3 style={contentStyle} className="wwwwwwww">
+                                <img src="assets/centerfour1.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerfour2.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerfour3.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerfour4.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerfour5.png" alt="" className="centerimgtwo" />
+                            </h3>
+                        </div>
+                        <div>
+                            <h3 style={contentStyle} className="wwwwwwww">
+                                <img src="assets/centerfour6.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerfour7.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerfour8.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerfour9.png" alt="" className="centerimgtwo" />
+                                <img src="assets/centerthree10.png" alt="" className="centerimgtwo" />
+                            </h3>
+                        </div>
+                    </Carousel>
+                </div>
+
+            </div>
 
 
         </>

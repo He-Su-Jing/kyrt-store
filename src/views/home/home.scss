@@ -428,3 +428,53 @@
     }
 
 }
+
+.centergallery {
+    max-width: 1400px;
+    width: 95%;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    // background: #F7F8FA;
+    // padding-top: 20px;
+    padding-bottom: 20px;
+
+    .centertwozio {
+        max-width: 1400px;
+        width: 95%;
+        margin: 0 auto;
+        // margin-left: 42px;
+
+        .wwwwwwww {
+            display: flex;
+        }
+
+        .centerimgtwo {
+            width: 19%;
+            margin: 0 6px;
+            cursor: pointer;
+        }
+    }
+
+
+
+}
+
+.tenlistfu {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1400px;
+    width: 88%;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    // background: #F7F8FA;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .tenlist {
+        border: 1px solid pink;
+        padding: 10px 20px;
+        border-radius: 50px;
+    }
+}

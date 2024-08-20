@@ -8,6 +8,7 @@ import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row } 
 import Menu from '../../components/menu/menu';
 import Menulist from '../../components/menulist/menulist';
 import Choose from '../../components/choose/choose'; // 确保路径正确
+import ProductTabs from '../../components/recommend/recommend'; // 确保路径正确
 
 function Home() {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
@@ -349,6 +350,63 @@ function Home() {
                     </Carousel>
                 </div>
 
+            </div>
+
+            <div className="threeimg" >
+                <img src="assets/recommend.png" alt="" className="threeimgs" />
+            </div>
+            <ProductTabs />
+
+            <div className="threeimg" >
+                <img src="assets/stylegallery.png" alt="" className="threeimgs" />
+            </div>
+
+            <div className="centergallery" style={{ marginTop: '20px' }}>
+                <div className="centertwozio">
+                    <div>
+                        <h3 style={contentStyle} className="wwwwwwww">
+                            <img src="assets/stylegallery1.png" alt="" className="centerimgtwo" />
+                            <img src="assets/stylegallery2.png" alt="" className="centerimgtwo" />
+                            <img src="assets/stylegallery3.png" alt="" className="centerimgtwo" />
+                            <img src="assets/stylegallery4.png" alt="" className="centerimgtwo" />
+                            <img src="assets/stylegallery5.png" alt="" className="centerimgtwo" />
+                        </h3>
+                    </div>
+                </div>
+
+            </div>
+
+            <div className="tenlistfu">
+                <div className="tenlist">
+                    sgrbwr
+                </div>
+                <div className="tenlist">
+                    sgrbwr
+                </div>
+                <div className="tenlist">
+                    sgrbwr
+                </div>
+                <div className="tenlist">
+                    sgrbwr
+                </div>
+                <div className="tenlist">
+                    sgrbwr
+                </div>
+                <div className="tenlist">
+                    sgrbwr
+                </div>
+                <div className="tenlist">
+                    sgrbwr
+                </div>
+                <div className="tenlist">
+                    sgrbwr
+                </div>
+                <div className="tenlist">
+                    sgrbwr
+                </div>
+                <div className="tenlist">
+                    sgrbwr
+                </div>
             </div>
 
 

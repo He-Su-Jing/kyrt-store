@@ -3,12 +3,15 @@ import "./home.scss"
 import React from 'react';
 import { useState, useRef } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row } from 'antd';
+import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row, FloatButton } from 'antd';
+
 
 import Menu from '../../components/menu/menu';
 import Menulist from '../../components/menulist/menulist';
-import Choose from '../../components/choose/choose'; // 确保路径正确
-import ProductTabs from '../../components/recommend/recommend'; // 确保路径正确
+import Choose from '../../components/choose/choose';
+import ProductTabs from '../../components/recommend/recommend';
+import Bottom from '../../components/bottom/bottom'; //
+import SlideOutSidebar from '../../components/asidefixed/asidefixed'; //
 
 function Home() {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
@@ -69,7 +72,10 @@ function Home() {
     };
 
     return (
-        <>
+        <div style={{
+            height: '50vh',
+            padding: 10,
+        }}>
             <img src="assets/toplog.png" alt="" className="logoimg" />
 
             <div className="top" >
@@ -377,40 +383,46 @@ function Home() {
             </div>
 
             <div className="tenlistfu">
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(42,66,83)' }}>
+                    Fall Style
                 </div>
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(121,48,75)' }}>
+                    Cozy Comforts
                 </div>
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(215,201,189)' }}>
+                    Casual Lookbook
                 </div>
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(220,202,215)' }}>
+                    Electric Nights
                 </div>
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(166,123,96)' }}>
+                    Time To Shine
                 </div>
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(211,196,175)' }}>
+                    Urban Chic
                 </div>
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(189,141,142)' }}>
+                    Chic & Chill
                 </div>
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(213,187,162)' }}>
+                    Denim Guide
                 </div>
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(136,117,111)' }}>
+                    Highstreet Fashion
                 </div>
-                <div className="tenlist">
-                    sgrbwr
+                <div className="tenlist" style={{ backgroundColor: 'rgb(47,53,75)' }}>
+                    Date Wear
                 </div>
             </div>
 
+            <Bottom />
 
-        </>
+            <SlideOutSidebar />
+
+            <FloatButton.BackTop />
+
+
+        </div>
     )
 }
 

@@ -1,0 +1,75 @@
+.botfu {
+    width: 100%;
+    background-color: #FAFAFA;
+}
+
+.bottomfu {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 84%;
+    // height: 600px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    // background: #F7F8FA;
+    padding-top: 60px;
+    padding-bottom: 20px;
+
+    .bottomzileft {
+
+        width: 50%;
+
+        .zileft {
+            display: flex;
+            justify-content: space-around;
+
+            .zilefts {
+                // margin: 0 40px;
+                margin-right: 40px;
+                font-size: 12px;
+
+                .zileftsa {
+                    margin: 10px 0;
+                    font-size: 12px;
+                    text-decoration: none;
+                    color: #666666;
+                    display: block;
+
+                    &:hover {
+                        color: black;
+                    }
+                }
+
+
+            }
+        }
+
+        .zileftbt {
+            margin-top: 100px;
+            font-size: 12px;
+        }
+    }
+
+    .bottomziright {
+        width: 50%;
+        margin-left: 100px;
+        font-size: 12px;
+
+        .zirightone {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .zirighttwo {
+            margin-bottom: 20px;
+        }
+
+        .ant-btn-primary {
+            // background: palegreen;
+            background: #000000;
+        }
+    }
+}

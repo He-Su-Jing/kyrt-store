@@ -9,9 +9,9 @@ import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row, F
 import Menu from '../../components/menu/menu';
 import Menulist from '../../components/menulist/menulist';
 import Choose from '../../components/choose/choose';
-import ProductTabs from '../../components/recommend/recommend';
-import Bottom from '../../components/bottom/bottom'; //
-import SlideOutSidebar from '../../components/asidefixed/asidefixed'; //
+import ProductTabs from '../../components/recommend/recommend'; // 
+import Bottom from '../../components/bottom/bottom'; // 
+import SlideOutSidebar from '../../components/asidefixed/asidefixed'; // 
 
 function Home() {
     const [isOverlayVisible, setOverlayVisible] = useState(false);

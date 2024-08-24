@@ -1,7 +1,8 @@
 import "./sift.scss"
 import React from 'react';
 import Menulist from '../../components/menulist/menulist';
-import Bottom from '../../components/bottom/bottom'; // 
+import Bottomtwo from '../../components/bottomtwo/bottomtwo';
+// import Bottom from '../../components/bottom/bottom'; // 
 import SlideOutSidebar from '../../components/asidefixed/asidefixed'; // 
 import FilterComponent from '../../components/sift/siftfilter/siftfilter'; // 
 import ColorPalette from '../../components/sift/colorpalette/colorpalette'; // 
@@ -579,7 +580,10 @@ function Sift() {
 
             </div>
 
-            <Bottom />
+            {/* <Bottom /> */}
+
+            <Bottomtwo />
+
 
             <SlideOutSidebar />
 

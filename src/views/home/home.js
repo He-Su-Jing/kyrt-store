@@ -10,7 +10,8 @@ import Menu from '../../components/menu/menu';
 import Menulist from '../../components/menulist/menulist';
 import Choose from '../../components/choose/choose';
 import ProductTabs from '../../components/recommend/recommend'; // 
-import Bottom from '../../components/bottom/bottom'; // 
+// import Bottom from '../../components/bottom/bottom'; 
+import Bottomtwo from '../../components/bottomtwo/bottomtwo';
 import SlideOutSidebar from '../../components/asidefixed/asidefixed'; // 
 
 function Home() {
@@ -415,7 +416,9 @@ function Home() {
                 </div>
             </div>
 
-            <Bottom />
+            {/* <Bottom /> */}
+            <Bottomtwo />
+
 
             <SlideOutSidebar />
 

@@ -4,7 +4,6 @@ import { AudioOutlined, SearchOutlined } from '@ant-design/icons';
 import { Input, Space, Button, Select, } from 'antd';
 
 
-
 function Bottom() {
 
     const { Search } = Input;
@@ -29,7 +28,6 @@ function Bottom() {
             label: 'Angola + 244',
         },
     ];
-
 
     return (
         <>

@@ -4,6 +4,9 @@ import { lazy } from "react"
 const Home = lazy(() => import(/*webpackChunkName:"home" */"../views/home/home"))
 const Login = lazy(() => import(/*webpackChunkName:"login" */"../views/login/login"))
 const Sift = lazy(() => import(/*webpackChunkName:"login" */"../views/sift/sift"))
+const Shopcart = lazy(() => import(/*webpackChunkName:"login" */"../views/shopcart/shopcart"))
+
+
 
 function GenerateRoutes() {
     const routes = useRoutes([
@@ -18,6 +21,10 @@ function GenerateRoutes() {
         {
             path: "/sift",
             element: <Sift />
+        },
+        {
+            path: "/shopcart",
+            element: <Shopcart />
         },
 
     ])

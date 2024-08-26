@@ -1,5 +1,6 @@
 import "./sift.scss"
 import React from 'react';
+
 import Menulist from '../../components/menulist/menulist';
 import Bottomtwo from '../../components/bottomtwo/bottomtwo';
 // import Bottom from '../../components/bottom/bottom'; // 
@@ -526,12 +527,14 @@ function Sift() {
                                                 <div className="productfu" style={{ display: 'flex', flexWrap: 'wrap', marginLeft: '50px' }}>
                                                     {tabsData[0].products.map(product => (
                                                         <div key={product.id} className="product-item" style={{ width: '25%', boxSizing: 'border-box', paddingLeft: '10px' }}>
-                                                            <img src={product.img} alt={product.name} style={{ width: '100%' }} />
+                                                            <Link to="/shopcart" style={{ textDecoration: 'none' }}>
+                                                                <img src={product.img} alt={product.name} style={{ width: '100%' }} />
+                                                            </Link>
                                                             <div>
                                                                 <div className='product-itemtit'>{product.name}</div>
                                                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                                     <div className='product-itemmay'>${product.price.toFixed(2)}</div>
-                                                                    <div className='product-itemimg'><img src="assets/addshop.png" alt="Add to cart" /></div>
+                                                                    <div className='product-itemimg'><img src="assets/addshop.png" alt="Add to cart" style={{ width: '25px' }} /></div>
                                                                 </div>
                                                             </div>
                                                         </div>

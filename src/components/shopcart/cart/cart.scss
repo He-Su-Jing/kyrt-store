@@ -46,14 +46,14 @@
         .lunbobutzi1 {
             position: absolute;
             left: 0;
-            top: 40%;
+            top: 30%;
             display: none;
         }
 
         .lunbobutzi2 {
             position: absolute;
             right: 0;
-            top: 40%;
+            top: 30%;
             display: none;
         }
 
@@ -64,26 +64,75 @@
         &:hover .lunbobutzi2 {
             display: block;
         }
+
+
+        .pinglunfu {
+            width: 115%;
+            height: 500px;
+            margin-left: -80px;
+            // border: 1px solid pink;
+
+            .pinglunfutit {
+                font-size: 24px;
+                color: #222222;
+                font-weight: 600;
+                margin-top: 40px;
+            }
+
+            .pinglunfenshu {
+                background-color: #f7f8fa;
+                padding: 20px;
+
+                :where(.css-dev-only-do-not-override-d2lrxs).ant-slider .ant-slider-track {
+                    background-color: #222222;
+                }
+
+                :where(.css-dev-only-do-not-override-d2lrxs).ant-slider .ant-slider-handle::after {
+                    display: none;
+                }
+
+
+                .pinglunfenshut {
+                    font-size: 36px;
+                    color: #000000;
+                    font-weight: 600;
+                }
+            }
+
+            .ant-tabs-nav {
+                padding: 0;
+            }
+
+            .pinglunsifi {
+                // display: flex;
+                white-space: normal;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #e5e5e5;
+                margin-top: 20px;
+            }
+
+            .pinglunsifitit {
+                white-space: normal;
+                margin-top: 20px;
+
+                span {
+                    font-size: 12px;
+                    color: #222;
+                    padding: 3px 15px;
+                    background-color: #fff8eb;
+                    margin-right: 10px;
+                }
+            }
+
+            .pinglunzhengwen {
+                margin-top: 20px;
+            }
+
+
+        }
     }
 
-    .zhengce {
-        background-color: #f7f8fa;
-        margin-top: 50px;
-        font-size: 12px;
 
-        .zhengce1 {
-            display: flex;
-        }
-
-        .zhengce2 {
-            display: flex;
-        }
-
-        .zhengce3 {
-            display: flex;
-        }
-
-    }
 }
 
 .product-details {
@@ -148,6 +197,40 @@
         color: #222222;
         font-size: 12px;
     }
+
+    .zhengce {
+        background-color: #f7f8fa;
+        margin-top: 50px;
+        font-size: 12px;
+
+        .zhengce1 {
+            display: flex;
+        }
+
+        .zhengce2 {
+            display: flex;
+        }
+
+        .zhengce3 {
+            display: flex;
+        }
+
+    }
+
+    :where(.css-dev-only-do-not-override-d2lrxs).ant-tree .ant-tree-checkbox .ant-tree-checkbox-inner {
+        display: none;
+    }
+
+    .shangjaistore {
+        display: flex;
+    }
+
+    .shangjaistore1 {
+        display: flex;
+        margin-top: 10px;
+    }
+
+
 }
 
 

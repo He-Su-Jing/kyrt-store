@@ -194,7 +194,7 @@ function Shopcart() {
                 <a href="" className="topahrefzi">Women Clothing</a> /&ensp;
                 <a href="" className="topahrefzi">Women Tops, Blouses & Tee</a> /&ensp;
                 <a href="" className="topahrefzi">Women Tank Tops & Camis</a> /&ensp;
-                <span className="topahrefzi">SHEIN MOD 3pcs Plain Knitted Fitted Tie-Up Cropped Camisole For Women</span>
+                <span className="topahrefzi1">SHEIN MOD 3pcs Plain Knitted Fitted Tie-Up Cropped Camisole For Women</span>
             </div>
 
             <div className="imgshopdetail">
@@ -204,6 +204,9 @@ function Shopcart() {
             {/* <div style={{ width: '65px', border: '1px solid pink' }}>
                 4899999999999999999
             </div> */}
+
+
+
         </>
     )
 }

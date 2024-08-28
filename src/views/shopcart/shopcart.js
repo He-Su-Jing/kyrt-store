@@ -2,11 +2,14 @@ import "./shopcart.scss"
 import React from 'react';
 import Menulist from '../../components/menulist/menulist';
 import ShoppingCart from '../../components/shopcart/cart/cart';
+import Bottomtwo from '../../components/bottomtwo/bottomtwo';
+import SlideOutSidebar from '../../components/asidefixed/asidefixed'; // 
+
 
 import { useState, useRef } from 'react';
 
 // import { Dropdown, Space, } from 'antd';
-import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row, FloatButton, Layout, Menu, theme, Radio, Select, Tree, Pagination, Slider, Switch, Collapse } from 'antd';
+import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row, FloatButton } from 'antd';
 
 
 
@@ -90,8 +93,33 @@ function Shopcart() {
         },
     ];
 
+    const tabsData = [
+        {
+            id: 1,
+            label: 'Women',
+            products: [
+                { id: 1, name: 'deessdeessdeessdeessdeessdeessdeessdeessdeessdeessd', price: 11.38, img: 'assetsshop/carttuijianimg.png' },
+                { id: 2, name: 'Pants', price: 40, img: 'assetsshop/carttuijianimg2.png' },
+                { id: 3, name: 'Pants', price: 40, img: 'assetsshop/carttuijianimg3.png' },
+                { id: 4, name: 'Pants', price: 40, img: 'assetsshop/carttuijianimg.png' },
+                { id: 5, name: 'deessdeessdeessdeessdeessdeessdeessdeessdeessdeessd', price: 40, img: 'assetsshop/carttuijianimg2.png' },
+                { id: 6, name: 'Pants', price: 40, img: 'assetsshop/carttuijianimg3.png' },
+                { id: 7, name: 'Pants', price: 40, img: 'assetsshop/carttuijianimg.png' },
+                { id: 8, name: 'Pants', price: 40, img: 'assetsshop/shopdaimg.png' },
+                { id: 9, name: 'Pants', price: 40, img: 'assetsshop/carttuijianimg2.png' },
+                { id: 10, name: 'deessdeessdeessdeessdeessdeessdeessdeessdeessdeessd', price: 40, img: 'assetsshop/carttuijianimg3.png' },
+                // { id: 11, name: 'Pants', price: 40, img: 'assetsshop/carttuijianimg.png' },
+                // { id: 12, name: 'Pants', price: 40, img: 'assetsshop/carttuijianimg2.png' },
+                // { id: 13, name: 'Pants', price: 40, img: 'assetsshop/shopdaimg.png' },
+            ],
+        },
+    ];
+
     return (
-        <>
+        <div style={{
+            height: '50vh',
+            padding: 10,
+        }}>
             <div className="top" >
                 <div><img src="assets/imagetop3.png" alt="" className="logoimgbot" /></div>
                 <div className="inputsch">
@@ -201,13 +229,41 @@ function Shopcart() {
                 <ShoppingCart products={products} />
             </div>
 
-            {/* <div style={{ width: '65px', border: '1px solid pink' }}>
-                4899999999999999999
-            </div> */}
+            <div style={{ maxWidth: '1500px', width: '90%', margin: '0 auto' }}>
+                <div className="carttuijiantit">Customers Also Viewed </div>
+                <div className="tabrecmd-content">
+                    {tabsData.length > 0 && (
+                        <div key={tabsData[0].id} className="tabrecmd-pane">
+                            <div className="productfu" style={{ display: 'flex', flexWrap: 'wrap', marginLeft: '50px' }}>
+                                {tabsData[0].products.map(product => (
+                                    <div key={product.id} className="product-item" style={{ width: '20%', boxSizing: 'border-box', padding: '15px' }}>
+                                        <img src={product.img} alt={product.name} style={{ width: '100%' }} />
+                                        <div>
+                                            <div className='product-itemtit'>{product.name}</div>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                <div className='product-itemmay'>${product.price.toFixed(2)}</div>
+                                                <div className='product-itemimg'><img src="assets/addshop.png" alt="Add to cart" style={{ width: '25px' }} /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+                <div className="carttuijianmore">View More</div>
+            </div>
+
+            <Bottomtwo />
+
+            <SlideOutSidebar />
+
+            <FloatButton.BackTop />
 
 
 
-        </>
+
+        </div>
     )
 }
 export default Shopcart

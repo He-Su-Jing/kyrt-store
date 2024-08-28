@@ -3,7 +3,7 @@ import "./cart.scss"
 import React, { useState } from 'react';
 
 import Modal from '../model/model';
-import { Affix, Button, Flex, Tooltip, Rate, Slider, Switch, Tabs } from 'antd';
+import { Affix, Button, Flex, Tooltip, Rate, Slider, Switch, Tabs, Popover, Steps, Pagination } from 'antd';
 import { SearchOutlined, HeartOutlined } from '@ant-design/icons';
 
 import FilterComponent from '../../sift/siftfilter/siftfilter'; //
@@ -23,6 +23,23 @@ const items = [
         children: 'Content of Tab Pane 2',
     },
 ];
+
+// 步骤
+const customDot = (dot, { status, index }) => (
+    <Popover
+    // content={
+    //     <span>
+    //         step {index} status: {status}
+    //     </span>
+    // }
+    >
+        {dot}
+    </Popover>
+);
+const description = '';
+
+// 分页
+const showTotal = (total) => `Total ${total} items`;
 
 
 const ShoppingCart = ({ products }) => {
@@ -53,16 +70,18 @@ const ShoppingCart = ({ products }) => {
     };
 
     const sizeData = [
-        { title: 'werrrrrrrrrrr', key: '1' },
-        { title: 'whhhhhhhhe', key: '2' },
-        { title: 'ffffffffffg', key: '3' },
-        { title: 'werrrrrrrrrrr', key: '4' },
-        { title: 'werrrrrrrrrrr', key: '5' },
-        { title: 'werrrrrrrrrrr', key: '6' },
-        { title: 'werrrrrrrrrrr', key: '7' },
-        { title: 'werrrrrrrrrrr', key: '8' },
-        { title: 'werrrrrrrrrrr', key: '9' },
-        { title: 'werrrrrrrrrrr', key: '10' },
+        { title: 'Sleeve Type:  Drop Shoulder', key: '1' },
+        { title: 'Style: Casual', key: '2' },
+        { title: 'Hem Shaped: Regular', key: '3' },
+        { title: 'Color: Apricot Animal, Cartoon, Halloween,', key: '4' },
+        { title: 'Pattern Type: Fruit&Vegetable, Plants', key: '5' },
+        { title: 'Neckline:Round Neck', key: '6' },
+        { title: 'werSleeve Length: Half Sleeve', key: '7' },
+        { title: 'Hem Shaped: Regular', key: '8' },
+        { title: 'Hem Shaped: Regular', key: '9' },
+        { title: 'Neckline:Round Neck', key: '10' },
+        { title: 'Style: Casual', key: '11' },
+        { title: 'Sleeve Type:Round Neck', key: '12' },
     ];
     const [checkedKeysSize, setCheckedKeysSize] = useState([]);
     // 尺寸筛选的回调函数
@@ -209,15 +228,40 @@ const ShoppingCart = ({ products }) => {
                         </div>
 
                         <div className="pinglunzhengwen">
-                            <div>aseg</div>
-                            <div>****</div>
-                            <div>sddgfmmmmm</div>
-                            <div>asffffffffffffffffffffffffffffffffff</div>
+                            <div className="pinglunzhengwen1"><span>v***4</span>2024/8/23</div>
+                            <div><Rate defaultValue={5} style={{ fontSize: '13px' }} /></div>
+                            <div className="pinglunzhengwen3">
+                                <span style={{ marginRight: '15px' }}> <span style={{ fontWeight: '600' }}>Overall Fit:</span>Large</span>
+                                <span style={{ marginRight: '15px' }}> <span style={{ fontWeight: '600' }}>Color:</span>White</span>
+                                <span style={{ marginRight: '15px' }}> <span style={{ fontWeight: '600' }}>Size:</span>M</span>
+                            </div>
+                            {/* <div className="pinglunzhengwen4">Very soft material that isn’t cotton. Fits bigger for a looser fit style.</div> */}
+                            <div className="pinglunzhengwen4">
+                                <div style={{ marginRight: '20px' }}>
+                                    Very soft material that isn’t cotton. Fits bigger for a looser fit style. Fits bigger for a looser fit style. Fits bigger for a looser fit style.
+                                </div>
+                                <div><img src="assetsshop/pinglunquimg.png" alt="" style={{ width: '98px', height: '98px' }} /></div>
+                            </div>
                         </div>
 
+                        <div className="pinglunzhengwen">
+                            <div className="pinglunzhengwen1"><span>v***4</span>2024/8/23</div>
+                            <div><Rate defaultValue={5} style={{ fontSize: '13px' }} /></div>
+                            <div className="pinglunzhengwen3">
+                                <span style={{ marginRight: '15px' }}> <span style={{ fontWeight: '600' }}>Overall Fit:</span>Large</span>
+                                <span style={{ marginRight: '15px' }}> <span style={{ fontWeight: '600' }}>Color:</span>White</span>
+                                <span style={{ marginRight: '15px' }}> <span style={{ fontWeight: '600' }}>Size:</span>M</span>
+                            </div>
+                            <div className="pinglunzhengwen4">Very soft material that isn’t cotton. Fits bigger for a looser fit style.</div>
+                        </div>
 
+                        <div style={{ marginTop: '30px', paddingLeft: '60%', whiteSpace: 'normal' }}>
+                            <Pagination size="small" total={50} showTotal={showTotal} />
+                        </div>
 
                     </div>
+
+
 
                 </div>
 
@@ -244,6 +288,42 @@ const ShoppingCart = ({ products }) => {
                     {/* Modal 组件和其它逻辑 */}
                     {modalOpen && (
                         <Modal isOpen={modalOpen} onClose={handleModalClose}>
+
+                            <div className="modeltop">
+                                <div>Size Guide</div>
+                            </div>
+
+                            <div className="modelbuzhou">
+                                <div style={{ fontWeight: '600' }}>
+                                    Stretch
+                                </div>
+                                <div>
+                                    <Steps
+                                        current={1}
+                                        progressDot={customDot}
+                                        items={[
+                                            {
+                                                title: 'Non',
+                                                description,
+                                            },
+                                            {
+                                                title: 'Slight',
+                                                description,
+                                            },
+                                            {
+                                                title: 'Medium',
+                                                description,
+                                            },
+                                            {
+                                                title: 'High',
+                                                description,
+                                            },
+                                        ]}
+                                    />
+                                </div>
+                            </div>
+
+
                             <table>
                                 <tr>
                                     <th>Size</th>
@@ -258,6 +338,36 @@ const ShoppingCart = ({ products }) => {
                                     </tr>
                                 ))}
                             </table>
+
+                            <div className="modeljieshuo">
+                                *This data was obtained from manually measuring the product, it may be off by 1-2 CM.
+                            </div>
+
+                            <div className="modeljieshuo">
+                                Sizes beginning with 'JP-' (e.g. JP-S) are the size notation for Japan. Please note that the international size notations are used on the product size tag.
+                            </div>
+
+                            <div className="modelpeizhi">
+                                <div className="modelpeizhitit">How to Measure the Product's Size?</div>
+                                <div className="modelpeizhicot">
+                                    <div className="modelpeizhinub"><span>1</span> Shoulder</div>
+                                    <div>Measure from where the shoulder seam meets the sleeve on one side to another side.</div>
+                                </div>
+                                <div className="modelpeizhicot">
+                                    <div className="modelpeizhinub"><span>2</span> Bust</div>
+                                    <div>Measure from the stitches below the armpits on one side to another.</div>
+                                </div>
+                                <div className="modelpeizhicot">
+                                    <div className="modelpeizhinub"><span>3</span> Length</div>
+                                    <div>Measure from where the shoulder seam meets the collar to the hem.</div>
+                                </div>
+                                <div className="modelpeizhicot">
+                                    <div className="modelpeizhinub"><span>4</span> Sleeves</div>
+                                    <div>Measure from where the shoulder seam meets armhole to the cuff.</div>
+                                </div>
+                            </div>
+
+
                         </Modal>
                     )}
                     <Button onClick={handleAddToCart} style={{ background: 'black', color: 'white', width: '80%', height: '50px', borderRadius: '0', marginRight: '20px' }}>Primary Button</Button>

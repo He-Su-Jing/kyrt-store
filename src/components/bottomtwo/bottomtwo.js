@@ -10,7 +10,6 @@ function Bottomtwo() {
                             {/* <div style={{ fontWeight: '600' }}>COMPANY INFO</div> */}
                             <div>
                                 <img src="assetssift/dibulogo.png" alt="" style={{ width: '250px' }} />
-
                                 <br />
                                 OBIC <br />
 
@@ -42,15 +41,15 @@ function Bottomtwo() {
 
                             <div>
                                 <img src="assetssift/dibuxiao2.png" alt="" style={{ width: '13px' }} />&ensp;
-                                Phone: <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px', display: 'inline-block' }}>  +8615257977914</a>
+                                Phone: <a href="tel:88 02 8714612" className="zileftsa" style={{ color: '#999999', fontSize: '14px', display: 'inline-block' }}>  +8615257977914</a>
                             </div>
                             <div>
                                 <img src="assetssift/dibuxiao3.png" alt="" style={{ width: '13px' }} />&ensp;
-                                E-Mail: <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px', display: 'inline-block' }}> obic@obicbusiness.com</a>
+                                E-Mail: <a href="mailto:obic@obicbusiness.com" className="zileftsa" style={{ color: '#999999', fontSize: '14px', display: 'inline-block' }}> obic@obicbusiness.com</a>
                             </div>
                             <div>
                                 <img src="assetssift/dibuxiao4.png" alt="" style={{ width: '13px' }} />&ensp;
-                                Web: <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px', display: 'inline-block' }}> www.obicbusiness.com</a>
+                                Web: <a href="http://obicbusiness.com" className="zileftsa" style={{ color: '#999999', fontSize: '14px', display: 'inline-block' }}> www.obicbusiness.com</a>
                             </div>
 
                         </div>
@@ -60,7 +59,10 @@ function Bottomtwo() {
                             <div style={{ color: '#B4B4B4' }}>In the city of Shanghai in China  <div className="zileftsa" style={{ color: '#999999', fontSize: '12px' }}>  In 2018</div> </div>
                             <div style={{ color: '#B4B4B4' }}>Chinese city of  YiWu   <div className="zileftsa" style={{ color: '#999999', fontSize: '12px' }}>In 2021</div> </div>
                             <div style={{ color: '#B4B4B4' }}>In the city of Sana'a in Yemen <div className="zileftsa" style={{ color: '#999999', fontSize: '12px' }}>In 2022</div> </div>
-                            <img src="assetssift/dibuditu.png" alt="" style={{ width: '130px' }} />
+                            <a href=" https://www.google.com/maps/place/29%C2%B018'05.5%22N+120%C2%B005'42.9%22E/@29.301533,120.0974497,17z/data=!4m4!3m3!8m2!3d29.301533!4d120.095261">
+                                <img src="assetssift/dibuditu.png" alt="" style={{ width: '130px' }} />
+
+                            </a>
 
 
                         </div>

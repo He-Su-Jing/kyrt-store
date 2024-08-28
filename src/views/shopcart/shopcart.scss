@@ -212,3 +212,86 @@
     margin: 0 auto;
     // border: 1px solid pink;
 }
+
+
+.carttuijiantit {
+    font-size: 24px;
+    color: #222;
+    font-weight: 600;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    margin-left: 55px;
+}
+
+.tabrecmd-content {
+    // padding: 20px;
+    // border: 1px solid #ccc;
+    border-top: none;
+    // width: 1200px;
+
+    img {
+        // max-width: 100px;
+        // margin-right: 10px;
+        width: 100%;
+    }
+}
+
+.productfu {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1400px;
+    width: 88%;
+    padding-left: 10px;
+
+
+    .product-item {
+        // margin: 10px 7px;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; //省略号
+        margin-bottom: 40px;
+        // margin-right: 5px;
+
+        &:hover {
+            box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .product-itemtit {
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; //省略号
+        }
+
+        .product-itemmay {
+            color: #fa6338;
+            font-weight: 600;
+        }
+
+        .product-itemimg {
+            width: 45px;
+            border: 1px solid #222;
+            padding: 1px 13px;
+            border-radius: 50px;
+        }
+    }
+}
+
+.carttuijianmore {
+    width: 160px;
+    height: 42px;
+    text-align: center;
+    line-height: 42px;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    background: #222;
+    font-weight: 600;
+    // margin: 0 auto;
+    margin-left: 45%;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    cursor: pointer;
+    // padding: 10px 5px;
+}

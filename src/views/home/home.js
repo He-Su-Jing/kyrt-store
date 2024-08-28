@@ -228,8 +228,6 @@ function Home() {
                                 <div className="centerimglbyqian3">s$1.91</div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

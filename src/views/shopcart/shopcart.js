@@ -3,7 +3,9 @@ import React from 'react';
 import Menulist from '../../components/menulist/menulist';
 import ShoppingCart from '../../components/shopcart/cart/cart';
 import Bottomtwo from '../../components/bottomtwo/bottomtwo';
-import SlideOutSidebar from '../../components/asidefixed/asidefixed'; // 
+import SlideOutSidebar from '../../components/asidefixed/asidefixed'; //
+
+
 
 
 import { useState, useRef } from 'react';
@@ -17,6 +19,7 @@ function Shopcart() {
 
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const { Search } = Input;
+
 
     // 下拉
     const [size, setSize] = useState('middle');
@@ -114,6 +117,8 @@ function Shopcart() {
             ],
         },
     ];
+
+
 
     return (
         <div style={{
@@ -259,6 +264,7 @@ function Shopcart() {
             <SlideOutSidebar />
 
             <FloatButton.BackTop />
+
 
 
 

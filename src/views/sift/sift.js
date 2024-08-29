@@ -6,7 +6,10 @@ import Bottomtwo from '../../components/bottomtwo/bottomtwo';
 // import Bottom from '../../components/bottom/bottom'; // 
 import SlideOutSidebar from '../../components/asidefixed/asidefixed'; // 
 import FilterComponent from '../../components/sift/siftfilter/siftfilter'; // 
-import ColorPalette from '../../components/sift/colorpalette/colorpalette'; // 
+import ColorPalette from '../../components/sift/colorpalette/colorpalette'; //
+
+import ModalCart from '../../components/shopcart/modelcart/modelcart';
+
 
 import { useState, useRef } from 'react';
 import { Button, Flex, Input, Breadcrumb, Dropdown, Space, Carousel, Col, Row, FloatButton, Layout, Menu, theme, Radio, Select, Tree, Pagination, Slider, Switch, Collapse } from 'antd';
@@ -17,7 +20,7 @@ import { Link } from 'react-router-dom';
 const { Header, Content, Footer, Sider } = Layout;
 const siderStyle = {
     overflow: 'auto',
-    height: '100vh',
+    // height: '160vh',
     width: '200px',
     scrollbarWidth: 'thin',
     scrollbarColor: 'unset',
@@ -38,7 +41,6 @@ const handleChange = (value) => {
 
 // 分页
 const showTotal = (total) => `Total ${total} items`;
-
 
 // 树形
 const treeData = [
@@ -85,10 +87,11 @@ const treeData = [
     },
 ]
 
-
 function Sift() {
     const [isOverlayVisible, setOverlayVisible] = useState(false);
     const { Search } = Input;
+    const [modalOpen, setModalOpen] = useState(false);
+
 
     // 复选框
     // 尺寸数据
@@ -290,18 +293,45 @@ function Sift() {
                 { id: 10, name: 'deessdeessdeessdeessdeessdeessdeessdeessdeessdeessd', price: 40, img: 'assetssift/siftimg1.png' },
                 { id: 11, name: 'Pants', price: 40, img: 'assetssift/siftimg2.png' },
                 { id: 12, name: 'Pants', price: 40, img: 'assetssift/siftimg3.png' },
-                { id: 13, name: 'Pants', price: 40, img: 'assetssift/siftimg3.png' },
-                { id: 14, name: 'Pants', price: 40, img: 'assetssift/siftimg2.png' },
-                { id: 15, name: 'Pants', price: 40, img: 'assetssift/siftimg7.png' },
-                { id: 16, name: 'Pants', price: 40, img: 'assetssift/siftimg8.png' },
-                { id: 17, name: 'Pants', price: 40, img: 'assetssift/siftimg3.png' },
-                { id: 18, name: 'Pants', price: 40, img: 'assetssift/siftimg4.png' },
-                { id: 19, name: 'Pants', price: 40, img: 'assetssift/siftimg6.png' },
-                { id: 20, name: 'Pants', price: 40, img: 'assetssift/siftimg7.png' },
-
+                // { id: 13, name: 'Pants', price: 40, img: 'assetssift/siftimg3.png' },
+                // { id: 14, name: 'Pants', price: 40, img: 'assetssift/siftimg2.png' },
+                // { id: 15, name: 'Pants', price: 40, img: 'assetssift/siftimg7.png' },
+                // { id: 16, name: 'Pants', price: 40, img: 'assetssift/siftimg8.png' },
             ],
         },
     ];
+
+    // 商品数据
+    const products = [
+        {
+            id: 1,
+            name: "SHEIN EZwear Women Casual Short Sleeve T-Shirt With Cake Print For Spring And Summer ",
+            sku: "sz2404036729247011",
+            price: 299.99,
+            thumbnail: "assetsshop/shopdaimgz.png",
+            images: [
+                "assetsshop/shopdaimgz.png",
+                "assetsshop/shopdaimg1.png",
+                "assetsshop/shopdaimg22.png",
+                "assetsshop/shopdaimg1.png",
+                "assetsshop/shopdaimg22.png"
+            ],
+            sizeInfo: [
+                { size: "S", height: "160-165cm", weight: "50-55kg" },
+                { size: "M", height: "165-170cm", weight: "55-60kg" },
+                { size: "L", height: "170-175cm", weight: "60-65kg" }
+            ]
+        },
+    ];
+
+    const handleModalOpen = () => {
+        setModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setModalOpen(false);
+    };
+
 
 
 
@@ -423,23 +453,6 @@ function Sift() {
                                     Filter
                                 </div>
 
-                                {/* <div>
-                                    <div style={{ fontSize: '14px', color: '#222222', fontWeight: '600', paddingTop: '20px', paddingBottom: '15px', display: 'flex', justifyContent: 'space-between' }}>
-                                        <div>Category</div>
-                                        <div>--</div>
-                                    </div>
-                                    <div style={{ marginLeft: '10px' }}>
-                                        <Radio.Group onChange={onChange} value={value}>
-                                            <Space direction="vertical">
-                                                <Radio value={1}>Women Short Dresses</Radio>
-                                                <Radio value={2}>Women Mini Dresses</Radio>
-                                                <Radio value={3}>Women Long Dresses</Radio>
-                                                <Radio value={4}>Women Midi Dresses</Radio>
-                                                <Radio value={5}>Women Maxi Dresses</Radio>
-                                            </Space>
-                                        </Radio.Group>
-                                    </div>
-                                </div> */}
 
                                 <div className="shuxingkj">
                                     <Tree
@@ -503,9 +516,9 @@ function Sift() {
                         </Sider>
 
                         <Layout>
-                            <Content style={{ overflow: 'initial', height: '70vh' }}>
+                            <Content style={{}}>
 
-                                <div style={{ textAlign: 'center', background: '#fff', borderRadius: borderRadiusLG, overflow: 'initial', height: '100vh', overflowY: 'scroll', borderRadius: '0', textAlign: '0' }}>
+                                <div style={{ textAlign: 'center', background: '#fff', borderRadius: borderRadiusLG, borderRadius: '0', textAlign: '0' }}>
 
                                     <div style={{ marginLeft: '50px', marginBottom: '20px' }}>
                                         <Select
@@ -534,7 +547,19 @@ function Sift() {
                                                                 <div className='product-itemtit'>{product.name}</div>
                                                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                                                     <div className='product-itemmay'>${product.price.toFixed(2)}</div>
-                                                                    <div className='product-itemimg'><img src="assets/addshop.png" alt="Add to cart" style={{ width: '25px' }} /></div>
+
+
+
+                                                                    <div onClick={handleModalOpen}>
+                                                                        <img src="assets/addshop.png" alt="" style={{ width: '25px' }} />
+                                                                    </div>
+
+                                                                    {modalOpen && (
+                                                                        <ModalCart isOpen={modalOpen} onmodelClose={handleModalClose} products={products}>
+                                                                        </ModalCart>
+                                                                    )}
+
+                                                                    {/* <div className='product-itemimg'><img src="assets/addshop.png" alt="Add to cart" style={{ width: '25px' }} /></div> */}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -550,7 +575,7 @@ function Sift() {
                 </div>
             </div>
 
-            <div style={{ width: '500px', margin: '0 auto' }}>
+            <div style={{ width: '500px', margin: '30px auto', }}>
                 <Pagination size="small" total={50} showTotal={showTotal} />
             </div>
 
@@ -584,6 +609,7 @@ function Sift() {
             </div>
 
             {/* <Bottom /> */}
+
 
             <Bottomtwo />
 

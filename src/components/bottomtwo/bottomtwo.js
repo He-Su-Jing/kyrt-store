@@ -22,12 +22,11 @@ function Bottomtwo() {
                         </div>
                         <div className="zilefts" style={{ paddingTop: '55px' }}>
                             <div style={{ fontWeight: '600', fontSize: '18px', color: '#E1E1E1', marginBottom: '30px' }}><span style={{ color: 'red' }}>L</span>INK</div>
-                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}> About Us</a>
-                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}>Services</a>
-                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}>Managers</a>
-                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}>Team</a>
-                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}>#Partners</a>
-                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}>#Contact</a>
+                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}> Home</a>
+                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}>Category</a>
+                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}>Live broadcast</a>
+                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}>Help</a>
+                            <a href="" className="zileftsa" style={{ color: '#999999', fontSize: '14px' }}>About us</a>
                         </div>
 
                         <div className="zilefts" style={{ paddingTop: '55px' }}>
@@ -76,7 +75,7 @@ function Bottomtwo() {
 
             <div className="botfu2">
                 <div className="bottomfu2">
-                    © 2022 All rights reserved to  OBIC  <a href="" style={{ color: '#929292', textDecoration: 'none' }}>Eng.Wadha Al-Mathhaji.</a>
+                    © 2022 All rights reserved to  OBIC  <a href="" style={{ color: '#929292', textDecoration: 'none' }}></a>
                 </div>
             </div>
 

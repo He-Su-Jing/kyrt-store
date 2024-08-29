@@ -3,7 +3,7 @@ import "./cart.scss"
 import React, { useState } from 'react';
 
 import Modal from '../model/model';
-import { Affix, Button, Flex, Tooltip, Rate, Slider, Switch, Tabs, Popover, Steps, Pagination } from 'antd';
+import { Affix, Button, Flex, Tooltip, Rate, Slider, Switch, Tabs, Popover, Steps, Pagination, Drawer } from 'antd';
 import { SearchOutlined, HeartOutlined } from '@ant-design/icons';
 
 import FilterComponent from '../../sift/siftfilter/siftfilter'; //
@@ -129,6 +129,15 @@ const ShoppingCart = ({ products }) => {
         setSelectedSortMethod(value);
     };
 
+    // 右侧抽屉
+    const [open, setOpen] = useState(false);
+    const showDrawer = () => {
+        setOpen(true);
+    };
+    const onClose = () => {
+        setOpen(false);
+    };
+
     return (
         <div className="shopping-cart">
             <div className="selected-product">
@@ -141,7 +150,7 @@ const ShoppingCart = ({ products }) => {
                                     src={image}
                                     alt={`Thumbnail ${index}`}
                                     onMouseEnter={() => handleImageIndexChange(index)} //  onMouseEnter / onClick
-                                    style={{ cursor: 'pointer', border: currentImageIndex === index ? '1px solid #222222' : '1px solid transparent', padding: '1px' }} // 鼠标悬停时高亮
+                                    style={{ cursor: 'pointer', border: currentImageIndex === index ? '1px solid #222222' : '1px solid transparent', padding: '1px', width: '50px' }} // 鼠标悬停时高亮
                                 />
                             </div>
 
@@ -162,9 +171,6 @@ const ShoppingCart = ({ products }) => {
                     <Button shape="circle" className="lunbobutzi2" onClick={() => setCurrentImageIndex(Math.min(selectedProduct.images.length - 1, currentImageIndex + 1))}>
                         &gt;
                     </Button>
-
-                    {/* <button className="lunbobutzi1" onClick={() => setCurrentImageIndex(Math.max(0, currentImageIndex - 1))}>&lt;</button>
-                    <button className="lunbobutzi2" onClick={() => setCurrentImageIndex(Math.min(selectedProduct.images.length - 1, currentImageIndex + 1))}>&gt;</button> */}
 
                     <div className="pinglunfu">
                         <div className="pinglunfutit">Customer Reviews</div>
@@ -272,12 +278,47 @@ const ShoppingCart = ({ products }) => {
 
                     <div style={{ width: '100%', height: '1px', border: '1px dashed #e5e5e5', marginBottom: '30px' }}></div>
 
+
+                    <div className="colorchoose">
+                        <div>Color : <span style={{ fontWeight: '400' }}>Silver</span></div>
+                        <div type="primary" onClick={showDrawer} style={{ color: '#3379cb', fontSize: '14px', fontWeight: '400' }}>
+                            Large image
+                        </div>
+                        <Drawer title="Color: Silver" onClose={onClose} open={open} width={578}>
+                            <div className="drawercontent">
+                                <div className="drawercontent-bar">
+                                    {selectedProduct.images.map((image, index) => (
+                                        <div>
+                                            <img
+                                                key={index}
+                                                src={image}
+                                                alt={`Thumbnail ${index}`}
+                                                onMouseEnter={() => handleImageIndexChange(index)} //  onMouseEnter / onClick
+                                                style={{ cursor: 'pointer', border: currentImageIndex === index ? '1px solid #222222' : '1px solid transparent', padding: '1px' }} // 鼠标悬停时高亮
+                                            />
+                                        </div>
+
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div>
+                                <Button className="drawerbutton" style={{ background: 'black', color: 'white' }}>CONFIRM</Button>
+                            </div>
+                        </Drawer>
+                    </div>
+                    <div className="colorchoosebt">
+                        <div className="colorchoosebtzi"></div>
+                        <div className="colorchoosebtzi1"></div>
+                        <div className="colorchoosebtzi2"></div>
+                    </div>
+
                     <div style={{ color: '#222222', fontSize: '16px', marginBottom: '20px', fontWeight: '600' }}>Size</div>
                     <div className="sizechose">
-                        <div className="sizechosezi">S</div>
-                        <div className="sizechosezi">M</div>
-                        <div className="sizechosezi">L</div>
-                        <div className="sizechosezi">XL</div>
+                        <span className="sizechosezi">S (80-95kg)</span>
+                        <span className="sizechosezi">M (95-110kg)</span>
+                        <span className="sizechosezi">L (110-125kg)</span>
+                        <span className="sizechosezi">XL (125-140kg)</span>
                     </div>
 
                     <div onClick={handleModalOpen} style={{ fontSize: '12px', color: '#2d68a8', cursor: 'pointer', marginBottom: '20px' }}>

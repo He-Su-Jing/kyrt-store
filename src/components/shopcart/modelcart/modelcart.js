@@ -104,7 +104,7 @@ const Modal = ({ isOpen, onmodelClose, products }) => {
         <div className="modal-backdrop" onClick={handleBackdropClick}>
             <div className="modal-content" onClick={e => e.stopPropagation()}>
                 <button className="modal-close" onClick={onmodelClose}>X</button>
-
+                {/* ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ */}
                 <div className="shopping-cart">
                     <div className="selected-product">
                         <div className="product-image">
@@ -297,6 +297,7 @@ const Modal = ({ isOpen, onmodelClose, products }) => {
 
 
                 </div >
+                {/* ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ */}
 
             </div>
         </div>

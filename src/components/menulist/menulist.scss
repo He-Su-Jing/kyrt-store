@@ -42,6 +42,7 @@
     background-color: #ffffff;
     padding: 20px;
     box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.2);
+    // border: 2px solid pink;
 }
 
 .hover-content-active {
@@ -69,6 +70,7 @@
 
 .tabcontent-fuda {
     display: flex;
+    // border: 2px solid pink;
 
     .tabcontent-fuda-zione {
         width: 35%;
@@ -78,6 +80,8 @@
         word-break: break-all;
         white-space: normal;
         overflow-wrap: break-word;
+
+        // border: 2px solid pink;
 
         .scrollable-fuda-zione {
             height: 400px;

@@ -582,7 +582,7 @@ function Sift() {
             <div className="threeimg" >
                 <img src="assetssift/siftimgbot.png" alt="" className="threeimgs" />
             </div>
-            <div className="centerthree" style={{ marginTop: '20px' }}>
+            <div className="centerthreesift" style={{ marginTop: '20px' }}>
                 <div className="centertwozio">
                     <Carousel arrows infinite={false} infinite arrowSize={20}>
                         <div>

@@ -5,9 +5,6 @@ import ShoppingCart from '../../components/shopcart/cart/cart';
 import Bottomtwo from '../../components/bottomtwo/bottomtwo';
 import SlideOutSidebar from '../../components/asidefixed/asidefixed'; //
 
-
-
-
 import { useState, useRef } from 'react';
 
 // import { Dropdown, Space, } from 'antd';
@@ -74,10 +71,32 @@ function Shopcart() {
 
 
     // 商品数据
+    // const products = [
+    //     {
+    //         id: 1,
+    //         name: "SHEIN EZwear Women Casual Short Sleeve T-Shirt With Cake Print For Spring And Summer ",
+    //         sku: "sz2404036729247011",
+    //         price: 299.99,
+    //         thumbnail: "assetsshop/shopdaimgz.png",
+    //         images: [
+    //             "assetsshop/shopdaimgz.png",
+    //             "assetsshop/shopdaimg1.png",
+    //             "assetsshop/shopdaimg22.png",
+    //             "assetsshop/shopdaimg1.png",
+    //             "assetsshop/shopdaimg22.png"
+    //         ],
+    //         sizeInfo: [
+    //             { size: "S", height: "160-165cm", weight: "50-55kg" },
+    //             { size: "M", height: "165-170cm", weight: "55-60kg" },
+    //             { size: "L", height: "170-175cm", weight: "60-65kg" }
+    //         ]
+    //     },
+    // ];
+
     const products = [
         {
             id: 1,
-            name: "SHEIN EZwear Women Casual Short Sleeve T-Shirt With Cake Print For Spring And Summer ",
+            name: "SHEIN EZwear Women Casual Short Sleeve T-Shirt With Cake Print For Spring And Summer",
             sku: "sz2404036729247011",
             price: 299.99,
             thumbnail: "assetsshop/shopdaimgz.png",
@@ -89,10 +108,17 @@ function Shopcart() {
                 "assetsshop/shopdaimg22.png"
             ],
             sizeInfo: [
+                { jiankuan: "50", yichang: "60cm", xiongwei: "70-80" },
+                { jiankuan: "55", yichang: "65", xiongwei: "80-90" },
+                { jiankuan: "60", yichang: "70", xiongwei: "90-100" }
+            ],
+            bodyInfo: [
                 { size: "S", height: "160-165cm", weight: "50-55kg" },
                 { size: "M", height: "165-170cm", weight: "55-60kg" },
                 { size: "L", height: "170-175cm", weight: "60-65kg" }
-            ]
+            ],
+            videoThumbnail: "assetsshop/video.png", // 视频缩略图
+            videoUrl: "https://player.vimeo.com/progressive_redirect/playback/995286556/container/2065142c-5b5d-44b5-b276-d97fe3919b28/eb237f3e-4b499127?expires=1725371065&loc=external&oauth2_token_id=1769078295&session_id=dc21dd01f50b375333dd57839aadfd6d3ea462f81725284545&signature=fa4832836b5f56bfa6a270247db402748c08121ad0eef64f8d452344db6ff0c7"
         },
     ];
 

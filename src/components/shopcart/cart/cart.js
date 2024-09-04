@@ -1,6 +1,6 @@
 import "./cart.scss"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Modal from '../model/model';
 import { Affix, Button, Flex, Tooltip, Rate, Slider, Switch, Tabs, Popover, Steps, Pagination, Drawer } from 'antd';
@@ -11,18 +11,6 @@ import FilterComponent from '../../sift/siftfilter/siftfilter'; //
 const onChange = (key) => {
     console.log(key);
 };
-const items = [
-    {
-        key: '1',
-        label: 'All Reviews',
-        children: 'Content of Tab Pane 1',
-    },
-    {
-        key: '2',
-        label: 'Image',
-        children: 'Content of Tab Pane 2',
-    },
-];
 
 // 步骤
 const customDot = (dot, { status, index }) => (
@@ -41,19 +29,27 @@ const description = '';
 // 分页
 const showTotal = (total) => `Total ${total} items`;
 
-
 const ShoppingCart = ({ products }) => {
     const [selectedProduct, setSelectedProduct] = useState(products[0]);
     const [modalOpen, setModalOpen] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0); //图片
+    const [currentMediaType, setCurrentMediaType] = useState(''); // 图片或视频
+
+
+
+    useEffect(() => {
+        // 模拟光标移入视频缩略图，触发视频加载
+        handleImageIndexChange(0, 'video');
+    }, [selectedProduct]);
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
         setCurrentImageIndex(0); // 点击商品时重置图片索引
     };
 
-    const handleImageIndexChange = (index) => {
+    const handleImageIndexChange = (index, mediaType) => {
         setCurrentImageIndex(index);
+        setCurrentMediaType(mediaType);
     };
 
     const handleModalOpen = () => {
@@ -69,6 +65,59 @@ const ShoppingCart = ({ products }) => {
         // 实际的添加到购物车逻辑
     };
 
+
+    const items = [
+        {
+            key: '1',
+            label: 'Product Measurements',
+            children: (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shoulder</th>
+                            <th>clothing length</th>
+                            <th>bust</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {selectedProduct.sizeInfo.map((sizechicun, index) => (
+                            <tr key={index}>
+                                <th>{sizechicun.jiankuan}</th>
+                                <td>{sizechicun.yichang}</td>
+                                <td>{sizechicun.xiongwei}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ),
+        },
+        {
+            key: '2',
+            label: 'Body Measurements',
+            children: (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>Height</th>
+                            <th>Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {selectedProduct.bodyInfo.map((guigechicun, index) => (
+                            <tr key={index}>
+                                <th>{guigechicun.size}</th>
+                                <td>{guigechicun.height}</td>
+                                <td>{guigechicun.weight}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ),
+        },
+    ];
+
+
     const sizeData = [
         { title: 'Sleeve Type:  Drop Shoulder', key: '1' },
         { title: 'Style: Casual', key: '2' },
@@ -83,6 +132,7 @@ const ShoppingCart = ({ products }) => {
         { title: 'Style: Casual', key: '11' },
         { title: 'Sleeve Type:Round Neck', key: '12' },
     ];
+
     const [checkedKeysSize, setCheckedKeysSize] = useState([]);
     // 尺寸筛选的回调函数
     const onCheckSize = (checkedKeys, info) => {
@@ -138,10 +188,68 @@ const ShoppingCart = ({ products }) => {
         setOpen(false);
     };
 
+    // 气泡卡片
+
+    const [selectedSize, setSelectedSize] = useState('S'); //尺码
+
+    const handleSizeChange = (size) => {
+        setSelectedSize(size);
+    };
+
+
+    const chimaData = {
+        S: {
+            description: (
+                <>
+                    Shoulder: 20.9 inch, Length: 27.2 inch, Sleeve <br /> Length: 8.4 inch, Bust: 43.3 inch
+                </>
+            ),
+            weightRange: '80-95kg'
+        },
+        M: {
+            description: (
+                <>
+                    Shoulder: 21.1 inch, Length: 27.5 inch, Sleeve <br />  Length: 8.6 inch, Bust: 44.5 inch
+                </>
+            ),
+            weightRange: '96-110kg'
+        },
+        L: {
+            description: (
+                <>
+                    Shoulder: 21.3 inch, Length: 27.8 inch, Sleeve <br />  Length: 8.8 inch, Bust: 45.7 inch
+                </>
+            ),
+            weightRange: '111-120kg'
+        }
+    };
+
+    const content = (
+        <div>
+            <p>{chimaData[selectedSize].description}</p>
+            <p>{` ${chimaData[selectedSize].weightRange}`}</p>
+        </div>
+    );
+
+
+    // const content = () => (
+    //     <div>
+    //         <p>{chimaData[selectedSize].description}</p>
+    //         <p>{`Weight Range: ${chimaData[selectedSize].weightRange}`}</p>
+    //     </div>
+    // );
+
+    // const content = (
+    //     <div>
+    //         <p>Shoulder: 20.9 inch,Length: 27.2 inch, Sleeve</p>
+    //         <p>Length: 8.4 inch, Bust: 43.3 inch.</p>
+    //     </div>
+    // );
+
     return (
         <div className="shopping-cart">
             <div className="selected-product">
-                <div className="product-image">
+                {/* <div className="product-image">
                     <div className="thumbnail-bar">
                         {selectedProduct.images.map((image, index) => (
                             <div>
@@ -156,12 +264,59 @@ const ShoppingCart = ({ products }) => {
 
                         ))}
                     </div>
+                </div> */}
+
+                <div className="product-image">
+                    <div className="thumbnail-bar">
+                        {selectedProduct.videoThumbnail && (
+                            <div>
+                                <img
+                                    src={selectedProduct.videoThumbnail}
+                                    alt="Video Thumbnail"
+                                    onMouseEnter={() => handleImageIndexChange(0, 'video')} // 假设视频缩略图索引为0
+                                    style={{
+                                        cursor: 'pointer',
+                                        border: currentMediaType === 'video' ? '1px solid #222222' : '1px solid transparent',
+                                        padding: '1px',
+                                        width: '50px'
+                                    }}
+                                />
+                            </div>
+                        )}
+                        {selectedProduct.images.map((image, index) => (
+                            <div key={index}>
+                                <img
+                                    src={image}
+                                    alt={`Thumbnail ${index}`}
+                                    onMouseEnter={() => handleImageIndexChange(index, 'image')} // onMouseEnter
+                                    style={{
+                                        cursor: 'pointer',
+                                        border: currentImageIndex === index && currentMediaType === 'image' ? '1px solid #222222' : '1px solid transparent',
+                                        padding: '1px',
+                                        width: '50px'
+                                    }}
+                                />
+                            </div>
+                        ))}
+
+                    </div>
                 </div>
+
+
 
                 <div className="lunbofuimg">
                     <div style={{ width: '100%' }}>
-                        <img src={selectedProduct.images[currentImageIndex]} alt="Product" style={{ width: '100%' }} />
+                        {/* <img src={selectedProduct.images[currentImageIndex]} alt="Product" style={{ width: '100%' }} /> */}
 
+                        {currentMediaType === 'image' && (
+                            <img src={selectedProduct.images[currentImageIndex]} alt="Product" style={{ width: '100%' }} />
+                        )}
+                        {currentMediaType === 'video' && (
+                            <video controls style={{ width: '100%' }}>
+                                <source src={selectedProduct.videoUrl} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        )}
                     </div>
 
                     <Button shape="circle" className="lunbobutzi1" onClick={() => setCurrentImageIndex(Math.max(0, currentImageIndex - 1))}>
@@ -287,7 +442,7 @@ const ShoppingCart = ({ products }) => {
                         <Drawer title="Color: Silver" onClose={onClose} open={open} width={578}>
                             <div className="drawercontent">
                                 <div className="drawercontent-bar">
-                                    {selectedProduct.images.map((image, index) => (
+                                    {/* {selectedProduct.images.map((image, index) => (
                                         <div>
                                             <img
                                                 key={index}
@@ -298,6 +453,22 @@ const ShoppingCart = ({ products }) => {
                                             />
                                         </div>
 
+                                    ))} */}
+
+                                    {selectedProduct.images.map((image, index) => (
+                                        <div key={index}>
+                                            <img
+                                                src={image}
+                                                alt={`Thumbnail ${index}`}
+                                                onMouseEnter={() => handleImageIndexChange(index, 'image')} // onMouseEnter
+                                                style={{
+                                                    cursor: 'pointer',
+                                                    border: currentImageIndex === index && currentMediaType === 'image' ? '1px solid #222222' : '1px solid transparent',
+                                                    padding: '1px',
+                                                    width: '50px'
+                                                }}
+                                            />
+                                        </div>
                                     ))}
                                 </div>
                             </div>
@@ -313,13 +484,43 @@ const ShoppingCart = ({ products }) => {
                         <div className="colorchoosebtzi2"></div>
                     </div>
 
-                    <div style={{ color: '#222222', fontSize: '16px', marginBottom: '20px', fontWeight: '600' }}>Size</div>
+                    <div style={{ color: '#222222', fontSize: '16px', marginBottom: '20px', fontWeight: '600' }}>
+                        <span style={{ marginRight: '15px' }}>Size</span>
+                        <select>
+                            <option value="" disabled selected>JP Size</option>
+                            <option>Default</option>
+                            <option>DE</option>
+                            <option>JP</option>
+                            <option>IT</option>
+                            <option>MX</option>
+                            <option>FR</option>
+                            <option>ES</option>
+                        </select>
+                    </div>
+
+                    {/* <div className="sizechose">
+                        <Popover content={content} title="Product Measurement">
+                            <Button>S (80-95kg)</Button>
+                        </Popover>
+                    </div> */}
+
                     <div className="sizechose">
+                        <Popover content={content} title="Product Measurement">
+                            <Button onMouseEnter={() => handleSizeChange('S')}>S ({chimaData.S.weightRange})</Button>
+                        </Popover>
+                        <Popover content={content} title="Product Measurement">
+                            <Button onMouseEnter={() => handleSizeChange('M')}>M ({chimaData.M.weightRange})</Button>
+                        </Popover>
+                        <Popover content={content} title="Product Measurement">
+                            <Button onMouseEnter={() => handleSizeChange('L')}>L ({chimaData.L.weightRange})</Button>
+                        </Popover>
+                    </div>
+                    {/* <div className="sizechose">
                         <span className="sizechosezi">S (80-95kg)</span>
                         <span className="sizechosezi">M (95-110kg)</span>
                         <span className="sizechosezi">L (110-125kg)</span>
                         <span className="sizechosezi">XL (125-140kg)</span>
-                    </div>
+                    </div> */}
 
                     <div onClick={handleModalOpen} style={{ fontSize: '12px', color: '#2d68a8', cursor: 'pointer', marginBottom: '20px' }}>
                         <img src="assetsshop/jianpan.png" alt="" style={{ width: '20px' }} />
@@ -332,6 +533,52 @@ const ShoppingCart = ({ products }) => {
 
                             <div className="modeltop">
                                 <div>Size Guide</div>
+                            </div>
+
+                            <div className="modelbuzhoutop">
+                                <div>Switch to</div>
+                                <div>
+                                    <select>
+                                        <option value="" disabled selected>BR Size</option>
+                                        <option>Default</option>
+                                        <option>DE</option>
+                                        <option>JP</option>
+                                        <option>IT</option>
+                                        <option>MX</option>
+                                        <option>FR</option>
+                                        <option>ES</option>
+                                    </select>
+
+                                    <Button type="primary" style={{ backgroundColor: 'white', color: 'black', marginLeft: '10px' }}>CM</Button>
+                                    <Button type="primary" style={{ backgroundColor: 'white', color: 'black', marginLeft: '10px' }}>IN</Button>
+                                </div>
+                            </div>
+
+                            <div className="modelbuzhou">
+                                <div style={{ fontWeight: '600' }}>
+                                    Fit Type
+                                </div>
+                                <div>
+                                    <Steps
+                                        size={12}
+                                        current={1}
+                                        progressDot={customDot}
+                                        items={[
+                                            {
+                                                title: 'Skinny',
+                                                description,
+                                            },
+                                            {
+                                                title: 'Regular',
+                                                description,
+                                            },
+                                            {
+                                                title: 'Oversized',
+                                                description,
+                                            },
+                                        ]}
+                                    />
+                                </div>
                             </div>
 
                             <div className="modelbuzhou">
@@ -365,7 +612,9 @@ const ShoppingCart = ({ products }) => {
                             </div>
 
 
-                            <table>
+
+                            <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+                            {/* <table>
                                 <tr>
                                     <th>Size</th>
                                     <th>Height</th>
@@ -378,7 +627,7 @@ const ShoppingCart = ({ products }) => {
                                         <td>{guigechicun.weight}</td>
                                     </tr>
                                 ))}
-                            </table>
+                            </table> */}
 
                             <div className="modeljieshuo">
                                 *This data was obtained from manually measuring the product, it may be off by 1-2 CM.

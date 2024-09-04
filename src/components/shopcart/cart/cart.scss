@@ -269,8 +269,14 @@
         margin-bottom: 20px;
         white-space: normal;
 
+        :where(.css-dev-only-do-not-override-d2lrxs).ant-btn-default {
+            margin-right: 8px;
+            margin-bottom: 5px;
+            border-radius: 50px;
+        }
+
         .sizechosezi {
-            width: 170px;
+            // width: 170px;
             height: 35px;
             display: inline-block;
             border: 1px solid #e5e5e5;
@@ -279,6 +285,8 @@
             border-radius: 50px;
             margin-right: 10px;
             margin-bottom: 10px;
+            padding: 0 10px;
+            font-size: 14px;
             // white-space: nowarp;
 
             &:hover {
@@ -334,10 +342,26 @@
 
     }
 
+    .modelbuzhoutop {
+        display: flex;
+        justify-content: space-between;
+        background-color: #f7f6f7;
+        margin-top: 80px;
+        padding: 10px 5px;
+        color: #222222;
+
+        :where(.css-dev-only-do-not-override-d2lrxs).ant-btn-primary {
+            background-color: #000000;
+            border-radius: 50PX;
+            padding: 4PX 8PX;
+        }
+
+    }
+
     .modelbuzhou {
         display: flex;
         margin-bottom: 30px;
-        margin-top: 100px;
+        margin-top: 30px;
 
         :where(.css-dev-only-do-not-override-d2lrxs).ant-steps .ant-steps-item-finish .ant-steps-item-icon>.ant-steps-icon .ant-steps-icon-dot {
             background: #000000;
@@ -436,19 +460,13 @@
 }
 
 
-
-.size-info {
-    /* 尺码信息样式 */
+:where(.css-dev-only-do-not-override-d2lrxs).ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: black;
 }
 
-/* 按钮样式 */
-// button {
-//     margin-top: 10px;
-//     padding: 10px 20px;
-//     cursor: pointer;
-// }
-
-
+:where(.css-dev-only-do-not-override-d2lrxs).ant-tabs .ant-tabs-ink-bar {
+    background: black;
+}
 
 .thumbnail-bar img {
     border: 1px solid #000000;

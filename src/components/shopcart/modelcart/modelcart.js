@@ -1,8 +1,11 @@
 import "./modelcart.scss"
 
 import React, { useState } from 'react';
+import Modal from '../model/model';
+
 
 import { Affix, Button, Flex, Tooltip, Rate, Slider, Switch, Tabs, Popover, Steps, Pagination, Drawer } from 'antd';
+
 import { SearchOutlined, HeartOutlined } from '@ant-design/icons';
 
 import FilterComponent from '../../sift/siftfilter/siftfilter'; //
@@ -10,18 +13,18 @@ import FilterComponent from '../../sift/siftfilter/siftfilter'; //
 const onChange = (key) => {
     console.log(key);
 };
-const items = [
-    {
-        key: '1',
-        label: 'All Reviews',
-        children: 'Content of Tab Pane 1',
-    },
-    {
-        key: '2',
-        label: 'Image',
-        children: 'Content of Tab Pane 2',
-    },
-];
+// const items = [
+//     {
+//         key: '1',
+//         label: 'All Reviews',
+//         children: 'Content of Tab Pane 1',
+//     },
+//     {
+//         key: '2',
+//         label: 'Image',
+//         children: 'Content of Tab Pane 2',
+//     },
+// ];
 
 // 步骤
 const customDot = (dot, { status, index }) => (
@@ -36,12 +39,18 @@ const showTotal = (total) => `Total ${total} items`;
 
 
 
-const Modal = ({ isOpen, onmodelClose, products }) => {
+const ModalCart = ({ isOpen, onmodelClose, products }) => {
 
     // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     const [selectedProduct, setSelectedProduct] = useState(products[0]);
     const [modalOpen, setModalOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const [selectedSize, setSelectedSize] = useState('S'); //尺码的气泡卡片
+    const handleSizeChange = (size) => {
+        setSelectedSize(size);
+    };
+
 
     const handleProductClick = (product) => {
         setSelectedProduct(product);
@@ -64,6 +73,59 @@ const Modal = ({ isOpen, onmodelClose, products }) => {
         console.log('Add to cart:', selectedProduct);
         // 实际的添加到购物车逻辑
     };
+
+
+    console.log("sdsdg", selectedProduct);
+    const items = [
+        {
+            key: '1',
+            label: 'Product Measurements',
+            children: (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shoulder</th>
+                            <th>clothing length</th>
+                            <th>bust</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {selectedProduct.sizeInfo.map((sizechicun, index) => (
+                            <tr key={index}>
+                                <th>{sizechicun.jiankuan}</th>
+                                <td>{sizechicun.yichang}</td>
+                                <td>{sizechicun.xiongwei}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ),
+        },
+        {
+            key: '2',
+            label: 'Body Measurements',
+            children: (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>Height</th>
+                            <th>Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {selectedProduct.bodyInfo.map((guigechicun, index) => (
+                            <tr key={index}>
+                                <th>{guigechicun.size}</th>
+                                <td>{guigechicun.height}</td>
+                                <td>{guigechicun.weight}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ),
+        },
+    ];
 
     const [checkedKeysSize, setCheckedKeysSize] = useState([]);
     // 尺寸筛选的回调函数
@@ -88,7 +150,6 @@ const Modal = ({ isOpen, onmodelClose, products }) => {
     };
     // ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
 
-
     if (!isOpen) return null; // 如果模态框未打开，则不渲染
 
     const handleBackdropClick = (e) => {
@@ -98,12 +159,45 @@ const Modal = ({ isOpen, onmodelClose, products }) => {
         }
     };
 
+    // 气泡卡片
+    const chimaData = {
+        S: {
+            description: (
+                <>
+                    Shoulder: 20.9 inch, Length: 27.2 inch, Sleeve <br /> Length: 8.4 inch, Bust: 43.3 inch
+                </>
+            ),
+            weightRange: '80-95kg'
+        },
+        M: {
+            description: (
+                <>
+                    Shoulder: 21.1 inch, Length: 27.5 inch, Sleeve <br />  Length: 8.6 inch, Bust: 44.5 inch
+                </>
+            ),
+            weightRange: '96-110kg'
+        },
+        L: {
+            description: (
+                <>
+                    Shoulder: 21.3 inch, Length: 27.8 inch, Sleeve <br />  Length: 8.8 inch, Bust: 45.7 inch
+                </>
+            ),
+            weightRange: '111-120kg'
+        }
+    };
 
+    const content = (
+        <div>
+            <p>{chimaData[selectedSize].description}</p>
+            <p>{` ${chimaData[selectedSize].weightRange}`}</p>
+        </div>
+    );
 
     return (
-        <div className="modal-backdrop" onClick={handleBackdropClick}>
-            <div className="modal-content" onClick={e => e.stopPropagation()}>
-                <button className="modal-close" onClick={onmodelClose}>X</button>
+        <div className="modal-backdrop1" onClick={handleBackdropClick}>
+            <div className="modal-content1" onClick={e => e.stopPropagation()}>
+                <button className="modal-close1" onClick={onmodelClose}>X</button>
                 {/* ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ */}
                 <div className="shopping-cart">
                     <div className="selected-product">
@@ -182,13 +276,44 @@ const Modal = ({ isOpen, onmodelClose, products }) => {
                                 <div className="colorchoosebtzi2"></div>
                             </div>
 
-                            <div style={{ color: '#222222', fontSize: '16px', marginBottom: '20px', fontWeight: '600' }}>Size</div>
-                            <div className="sizechose">
-                                <span className="sizechosezi">S (80-95kg)</span>
-                                <span className="sizechosezi">M (95-110kg)</span>
-                                <span className="sizechosezi">L (110-125kg)</span>
-                                <span className="sizechosezi">XL (125-140kg)</span>
+                            <div style={{ color: '#222222', fontSize: '16px', marginBottom: '20px', fontWeight: '600' }}>
+                                <span style={{ marginRight: '15px' }}>Size</span>
+                                <select>
+                                    <option value="" disabled selected>JP Size</option>
+                                    <option>Default</option>
+                                    <option>DE</option>
+                                    <option>JP</option>
+                                    <option>IT</option>
+                                    <option>MX</option>
+                                    <option>FR</option>
+                                    <option>ES</option>
+                                </select>
                             </div>
+
+                            {/* <div className="sizechose">
+                                    <Popover content={content} title="Product Measurement">
+                                        <Button>S (80-95kg)</Button>
+                                    </Popover>
+                                </div> */}
+
+                            <div className="sizechose">
+                                <Popover content={content} title="Product Measurement">
+                                    <Button onMouseEnter={() => handleSizeChange('S')}>S ({chimaData.S.weightRange})</Button>
+                                </Popover>
+                                <Popover content={content} title="Product Measurement">
+                                    <Button onMouseEnter={() => handleSizeChange('M')}>M ({chimaData.M.weightRange})</Button>
+                                </Popover>
+                                <Popover content={content} title="Product Measurement">
+                                    <Button onMouseEnter={() => handleSizeChange('L')}>L ({chimaData.L.weightRange})</Button>
+                                </Popover>
+                            </div>
+                            {/* <div className="sizechose">
+                                    <span className="sizechosezi">S (80-95kg)</span>
+                                    <span className="sizechosezi">M (95-110kg)</span>
+                                    <span className="sizechosezi">L (110-125kg)</span>
+                                    <span className="sizechosezi">XL (125-140kg)</span>
+                                </div> */}
+
 
                             <div onClick={handleModalOpen} style={{ fontSize: '12px', color: '#2d68a8', cursor: 'pointer', marginBottom: '20px' }}>
                                 <img src="assetsshop/jianpan.png" alt="" style={{ width: '20px' }} />
@@ -200,6 +325,52 @@ const Modal = ({ isOpen, onmodelClose, products }) => {
 
                                     <div className="modeltop">
                                         <div>Size Guide</div>
+                                    </div>
+
+                                    <div className="modelbuzhoutop">
+                                        <div>Switch to</div>
+                                        <div>
+                                            <select>
+                                                <option value="" disabled selected>BR Size</option>
+                                                <option>Default</option>
+                                                <option>DE</option>
+                                                <option>JP</option>
+                                                <option>IT</option>
+                                                <option>MX</option>
+                                                <option>FR</option>
+                                                <option>ES</option>
+                                            </select>
+
+                                            <Button type="primary" style={{ backgroundColor: 'white', color: 'black', marginLeft: '10px' }}>CM</Button>
+                                            <Button type="primary" style={{ backgroundColor: 'white', color: 'black', marginLeft: '10px' }}>IN</Button>
+                                        </div>
+                                    </div>
+
+                                    <div className="modelbuzhou">
+                                        <div style={{ fontWeight: '600' }}>
+                                            Fit Type
+                                        </div>
+                                        <div>
+                                            <Steps
+                                                size={12}
+                                                current={1}
+                                                progressDot={customDot}
+                                                items={[
+                                                    {
+                                                        title: 'Skinny',
+                                                        description,
+                                                    },
+                                                    {
+                                                        title: 'Regular',
+                                                        description,
+                                                    },
+                                                    {
+                                                        title: 'Oversized',
+                                                        description,
+                                                    },
+                                                ]}
+                                            />
+                                        </div>
                                     </div>
 
                                     <div className="modelbuzhou">
@@ -233,20 +404,22 @@ const Modal = ({ isOpen, onmodelClose, products }) => {
                                     </div>
 
 
-                                    <table>
-                                        <tr>
-                                            <th>Size</th>
-                                            <th>Height</th>
-                                            <th>Weight</th>
-                                        </tr>
-                                        {selectedProduct.sizeInfo.map((guigechicun, index) => (
-                                            <tr key={index}>
-                                                <th>{guigechicun.size}</th>
-                                                <td>{guigechicun.height}</td>
-                                                <td>{guigechicun.weight}</td>
+
+                                    <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
+                                    {/* <table>
+                                            <tr>
+                                                <th>Size</th>
+                                                <th>Height</th>
+                                                <th>Weight</th>
                                             </tr>
-                                        ))}
-                                    </table>
+                                            {selectedProduct.sizeInfo.map((guigechicun, index) => (
+                                                <tr key={index}>
+                                                    <th>{guigechicun.size}</th>
+                                                    <td>{guigechicun.height}</td>
+                                                    <td>{guigechicun.weight}</td>
+                                                </tr>
+                                            ))}
+                                        </table> */}
 
                                     <div className="modeljieshuo">
                                         *This data was obtained from manually measuring the product, it may be off by 1-2 CM.
@@ -304,5 +477,5 @@ const Modal = ({ isOpen, onmodelClose, products }) => {
     );
 };
 
-export default Modal;
+export default ModalCart;
 

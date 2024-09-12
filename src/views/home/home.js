@@ -78,7 +78,9 @@ function Home() {
             padding: 10,
         }}>
             <img src="assets/toplog.png" alt="" className="logoimg" />
+            {/* <div class="text-3xl font-bold underline text-rose-300">999999999999999999999999</div> */}
 
+            {/* <div class="flex justify-between items-center margin-auto max-width-1450 width-92"> */}
             <div className="top" >
                 <div><img src="assets/imagetop3.png" alt="" className="logoimgbot" /></div>
                 <div className="inputsch">
@@ -93,8 +95,10 @@ function Home() {
                         />
                     </div>
                     {isOverlayVisible && (
-                        <div className="overlay" onClick={closeOverlay}>
+                        <div class="fixed top15 left-0 w-full h-full bgtouming z-50" className="overlay" onClick={closeOverlay}>
                         </div>
+                        // <div className="overlay" onClick={closeOverlay}>
+                        // </div>
                     )}
 
                     {isOverlayVisible && (

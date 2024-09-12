@@ -6,6 +6,8 @@ const Login = lazy(() => import(/*webpackChunkName:"login" */"../views/login/log
 const Sift = lazy(() => import(/*webpackChunkName:"login" */"../views/sift/sift"))
 const Shopcart = lazy(() => import(/*webpackChunkName:"login" */"../views/shopcart/shopcart"))
 
+const About = lazy(() => import(/*webpackChunkName:"login" */"../views/about/about"))
+
 
 
 function GenerateRoutes() {
@@ -26,6 +28,12 @@ function GenerateRoutes() {
             path: "/shopcart",
             element: <Shopcart />
         },
+        {
+            path: "/about",
+            element: <About />
+        },
+
+
 
     ])
 

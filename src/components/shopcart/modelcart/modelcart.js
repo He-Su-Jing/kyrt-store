@@ -3,7 +3,6 @@ import "./modelcart.scss"
 import React, { useState } from 'react';
 import Modal from '../model/model';
 
-
 import { Affix, Button, Flex, Tooltip, Rate, Slider, Switch, Tabs, Popover, Steps, Pagination, Drawer } from 'antd';
 
 import { SearchOutlined, HeartOutlined } from '@ant-design/icons';

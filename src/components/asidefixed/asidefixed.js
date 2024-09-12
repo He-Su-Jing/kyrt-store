@@ -43,8 +43,8 @@ const SlideOutSidebar = () => {
         <div className={`sidebar-container ${isExpanded ? 'expanded' : ''}`}>
             <div className="sidebar-content" >
                 <div className="sidebar-content-fu">
-                    <div onClick={toggleSidebar}>
-                        <img src="assets/asideimg0.png" alt="" style={{ width: '', height: '310px' }} />
+                    <div onClick={toggleSidebar} className='content-fu1'>
+                        <img src="assets/asideimg0.png" alt="" />
                     </div>
                     <div className='content-fuzi'>
                         <img src="assets/asideimg.png" alt="" style={{ width: '' }} />
